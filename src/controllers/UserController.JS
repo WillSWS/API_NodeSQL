@@ -10,8 +10,8 @@ module.exports= {
     async store(req, res) {
         const { name, email } = req.body;
 
-        const user = await User.create({name , email});
+        const user = await User.create({ name, email});
 
-        return res.json(user);
+        return res.json(User);
     }
 };
