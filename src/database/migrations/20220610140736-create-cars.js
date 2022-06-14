@@ -2,34 +2,45 @@
 
 module.exports = {
   async up(queryInterface, Sequelize) {
-    await queryInterface.createTable('addresses', {
+    await queryInterface.createTable('cars', {
       id: {
         type: Sequelize.INTEGER,
         primaryKey: true,
         autoIncrement: true,
         allowNull: false
       },
-      user_id: {
+      marca_id: {
         type: Sequelize.INTEGER,
         allowNull: false,
-        references: { model: 'users', key: 'id' },
+        references: { model: 'marcas', key: 'id' },
         onUpdate: 'CASCADE',
         onDelete: 'CASCADE'
       },
-      zipcode: {
-        type: Sequelize.STRING,
-        allowNull: false
-      },
-      street: {
-        type: Sequelize.STRING,
-        allowNull: false
-      },
-      number: {
+      carroceria_id: {
         type: Sequelize.INTEGER,
+        allowNull: false,
+        references: { model: 'carrocerias', key: 'id' },
+        onUpdate: 'CASCADE',
+        onDelete: 'CASCADE'
+      },
+      fabricação: {
+        type: Sequelize.DATE,
+        allowNull: false
+      },
+      collor: {
+        type: Sequelize.STRING,
         allowNull: false
       },
       photo: {
         type: Sequelize.STRING,
+        allowNull: false
+      },
+      descrição: {
+        type: Sequelize.STRING,
+        allowNull: false
+      },
+      preço: {
+        type: Sequelize.FLOAT,
         allowNull: false
       },
       created_at: {
@@ -44,6 +55,6 @@ module.exports = {
   },
 
   async down(queryInterface, Sequelize) {
-    await queryInterface.dropTable('addresses')
+    await queryInterface.dropTable('cars')
   }
 }

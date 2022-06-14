@@ -1,11 +1,11 @@
 const { Model, DataTypes } = require("sequelize");
 
-class Marcas extends Model {
+class Carrocerias extends Model {
   static init(sequelize) {
     super.init(
       {
         name: DataTypes.STRING,
-        email: DataTypes.STRING,
+       
       },
       {
         sequelize
@@ -13,8 +13,9 @@ class Marcas extends Model {
     );
   }
   static associate(models) {
-    this.hasMany(models.Cars, { foreignKey: 'marca_id', as: 'carros'})
+    this.hasMany(models.Cars, { foreignKey: 'carroceria_id', as: 'carros'})
   }
+
 }
 
-module.exports = Marcas;
+module.exports = Carrocerias;
