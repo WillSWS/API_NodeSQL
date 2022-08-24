@@ -5,7 +5,7 @@ class Marcas extends Model {
     super.init(
       {
         name: DataTypes.STRING,
-        email: DataTypes.STRING,
+        
       },
       {
         sequelize

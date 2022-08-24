@@ -13,5 +13,6 @@ module.exports= {
         const user = await User.create({ name, email});
 
         return res.json(User);
+        
     }
 };
